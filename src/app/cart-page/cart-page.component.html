@@ -1,0 +1,111 @@
+<div style="min-height: calc(100% - 184px);">
+<div class="container container_padding">
+	<h1>Ваша корзина</h1>
+	<h2>Сумма</h2>
+</div>
+  
+<div *ngFor="let itemInCart of productsInCart" class="container itemInCart">
+	<div class="row">
+		<div class="col-xs-12 col-sm-3 text-center"><img alt="" style="max-width: 200px; margin: auto;" src=
+		"{{itemInCart.img1}}">
+		</div>
+		<div class="col-xs-10 col-sm-7">
+			<div class="d-flex">
+				<h3>{{itemInCart.h1}}</h3>
+				<div class="d-flex">
+					<!-- <button class="minus_btn"></button>  -->
+					<input min="1"  type="number"	class="text-center" [(ngModel)]='itemInCart.quantity' (ngModelChange)="calculateTotal($event); calculateTotalItem(itemInCart.id)">
+					<!-- <button class="plus_btn" (click)='plusOneItem()'></button> -->
+				</div>
+			</div>
+			<div class="price">
+				Цена <span>{{itemInCart.price}}</span> грн.
+			</div>
+			<div>
+				<h4>Краткое описание</h4>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam
+				doloribus cum natus aliquam odit perferendis reiciendis autem molestiae
+				enim officiis.<a href="#">Подробнее</a></p>
+			</div>
+		</div>
+		<div class="col-2">
+			<button class='close_btn' (click)='deleteProduct(itemInCart.id)'></button><br>
+			<div class="price">
+				<span *ngIf="itemInCart.totalItem">{{itemInCart.totalItem}} грн.</span>
+			</div>
+		</div>
+	</div>
+	<hr>
+</div>
+  
+<div class="container">
+	<div class="row text-center">
+		<div class="col-xs-0 col-lg-3"></div>
+		<div class="col-lg-3">
+			<div *ngIf="total >= 7950" class=" d-flex">
+				<img alt="freeshipping" src="../../assets/img/img_cart/delivery.png">
+				<p style="color: #f85969; text-transform: uppercase; font-weight: 700; line-height: 40px; margin: 0; margin-left: 4px;">
+				Бесплатная доставка</p>
+			</div>
+		</div>
+		<div class="col-lg-3 price">
+			Всего: <span>{{total}}</span> грн.
+		</div>
+		<div class="col-lg-3">
+			<button class="btn_make-order" (click)='openModal(template)'>Оформить заказ</button> 
+			<!-- <button (click)='clearCart()'>Очистить корзину</button> -->
+		</div>
+	</div>
+</div>
+</div>
+<!--=========ModalWindow=========-->
+<ng-template #template>
+	<div class="modal-header text-center">
+		<h4 class="modal-title">Заполните форму</h4>
+			<button aria-label="Close" class="close pull-right" style='width: 30px; height: 30px; margin: 0;' type=
+			"button">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+
+	<form class="form-horizontal text-center" [formGroup]="OrderForm" (ngSubmit)="addOrder(name.value)">
+		<div class="wrapperFormGroupResponsive">
+			<span style="color:#a94442" *ngIf="error">{{ error }}</span>
+			<div class="form-group">
+				<label for="option">Имя и фамилия</label>
+				<input [(ngModel)]="user.name" id="option" type="text" class="form-control" placeholder="Имя и фамилия" formControlName="UserName">
+			</div>
+		</div>
+		<br>
+		<div class="wrapperFormGroupResponsive">
+			<div class="form-group">
+				<label for="option">Телефон</label>
+				<input type="text" [(ngModel)]="user.phone" id="option" placeholder="Телефон" class="form-control">
+			</div>
+		</div>		
+		<br>
+		<div class="wrapperFormGroupResponsive">
+			<div class="form-group">
+				<label for="option">Город и область</label>
+				<input type="text" id="option" placeholder="Город и область" class="form-control">
+			</div>
+		</div>	
+		<br>
+		<div class="wrapperFormGroupResponsive">
+			<div class="form-group">
+				<label for="option">№ отделения Новой почты</label>
+				<input type="text" [(ngModel)]="user.postNumber" id="option" placeholder="№ отделения Новой почты" class="form-control">
+			</div>
+		</div>
+		<br>
+		<div class="wrapperFormGroupResponsive">
+			<div class="form-group">
+				<label for="option">Комментарий к заказу</label>
+				<textarea id="option" [(ngModel)]="user.comment" placeholder="Комментарий" class="form-control"></textarea>
+			</div>
+		</div>
+		<div class="form-group" style="text-align: center;">
+			<button type="submit" name="OrderForm" [disabled]="OrderForm.invalid">Оформить заказ</button>
+		</div>
+	</form>
+</ng-template>

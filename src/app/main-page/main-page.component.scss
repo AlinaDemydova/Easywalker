@@ -1,0 +1,249 @@
+$mainColorRed: #f85969;
+$white: #ffffff;
+$fontSize: 16px;
+
+body {
+  font-family: OpenSans, sans-serif;
+}
+
+button, input[type='submit'] {
+  padding: 0;
+  border: none;
+  color: $white;
+  background-color: $mainColorRed;
+  cursor: pointer;
+  width: 163px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.container_padding {
+  padding: 30px;
+}
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+.head {
+
+  button {
+    margin-top: 6px;
+  }
+
+  .description {
+    font-size: $fontSize;
+    font-weight: 700;
+    line-height: 52px;
+  }
+
+  .quickOrder {
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 6px;
+
+      span {
+        font-size: $fontSize;
+        font-weight: 700;
+      }
+  }
+}
+
+.navbar {
+  background-color: $mainColorRed;
+
+  li {
+    margin-right: 20px;
+
+    hr {
+      margin: 3px;
+      padding: 0;
+    }
+  }
+
+  .dropdown-menu {
+    padding: 3px;
+  }
+
+  .navbarDropdown {
+    padding: 0;
+    padding: 3px;
+  }
+
+  .active {
+    color: black;
+  }
+
+  .button_find {
+    width: 40px;
+  }
+
+  .nav-item {
+    line-height: 27px;
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: $white;
+    font-size: $fontSize;
+    font-weight: 400;
+  }
+
+  .dropdown-item:hover {
+    background-color: $mainColorRed;
+  }
+
+  .navbar-toggler {
+    border: none;
+    width: 60px;
+  }
+}
+
+.mainScreen {
+  background-image: url('../../assets/img/img_main/main_screen2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+    img {
+      padding: 20px;
+    }
+
+    h1 {
+      padding-top: 5%;
+      color: $white;
+      text-shadow:0 0 10px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+      font-weight: 700;
+    }
+
+    h2 {
+      color: $white;
+      font-size: 24px;
+      font-weight: 700;
+      text-shadow:0 0 10px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.6);
+    }
+
+    h3 {
+      font-size: $fontSize;
+      padding-bottom: 5%;
+      font-weight: 700;
+      color: $white;
+    }
+
+    .main_blocks {
+      justify-content: space-between;
+    }
+}
+
+.carousel {
+  border: 2px solid black;
+  padding: 1px;
+
+  .carousel-control-next-icon, .carousel-control-prev-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .carousel-indicators li {
+    background-color:black;
+  }
+}
+
+.card {
+  margin-top: 60px;
+  border: none;
+
+  img {
+    border: 2px solid $mainColorRed;
+    border-radius: 5px;
+    padding: 1px;
+  }
+}
+
+.advantages {
+  /* Set a specific height */
+  min-height: 700px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/assets/img/img_main/disney_minnie_theme_38_26 (2).png');
+
+  .imgAdvantages {
+    margin: 90px auto 20px;
+    width: 113px;
+    height: 100px;
+    align-items: center;
+  }
+    img {
+      vertical-align: bottom;
+    }
+
+    h2, h4, p {
+      color: $white;
+    }
+
+    span {
+      color: $mainColorRed;
+    }
+}
+
+.carousel_customers {
+  max-width: 700px;
+  padding: 0;
+}
+
+.howToBye {
+
+  h2 {
+    padding-bottom: 60px;
+  }
+  
+  img[alt="arrow"] {
+    width: 13px;
+    height: 22px;
+    margin-right: 5px;
+    margin-left: 20px;
+    margin-top: 15px;
+  }
+
+  .howToByeArrow {
+    background-image: url(../../assets/img/img_main/arrowRight.png);
+    background-size: cover;
+  }
+
+  .howToByeStepNumber {
+    width: 41px;
+    height: 41px;
+    color: $mainColorRed;
+    font-size: 30px;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: auto;
+  }
+
+  p:first-child {
+    line-height: 41px;
+  }
+
+  img[alt='steps'] {
+    margin: 20px;
+  }
+
+  .steps {
+    height: 114px;
+  }
+}
+
+.end {
+  background-image: url(../../assets/img/img_main/end.jpg);
+  background-size: cover;
+  
+  h2 {
+    color: $white;
+    font-size: 22px;
+  }
+
+}

@@ -1,0 +1,149 @@
+<!--=========Contacts=========-->
+<div class="container head">
+  <div class="row text-center">
+    <div class="col-xs-12 col-sm-12 col-lg-2"><a class="navbar-brand"><img alt="logo" src="../assets/img/logo.png"></a></div>
+    <div class="col-xs-12 col-sm-12 col-lg-5 description">Официальный дилер Easywalker в Украине</div>
+    <div class="col-xs-12 col-sm-12 col-lg-3 quickOrder">Быстрый заказ и вопросы по телефону
+      <div class="w-100"></div>
+      <span>(000)0000000</span>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-lg-2"><button type="button" (click)="openModal(template)">ПЕРЕЗВОНИТЕ МНЕ</button></div>
+  </div>
+</div>
+<!--=========/Contacts=========-->
+
+<!--=========ModalWindow=========-->
+<ng-template #template>
+  <div class="modal-header text-center">
+    <h4 class="modal-title pull-left">Заказать обратный звонок</h4>
+    <button type="button" class="close pull-right" style='width: 30px;' aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <form class="form-horizontal text-center" [formGroup]="CallbackForm" (ngSubmit)="addOrder(name.value)">
+      <div class="wrapperFormGroupResponsive">
+          <span style="color:#a94442" *ngIf="error">{{ error }}</span>
+          <div class="form-group">
+            <label for="option">Имя</label>
+            <input [(ngModel)]="user.name" id="option" type="text" class="form-control" placeholder="Имя" formControlName="UserName">
+          </div>
+        </div>
+            <br>
+        <div class="wrapperFormGroupResponsive">
+          <div class="form-group">
+            <label for="option">Телефон</label>
+            <input type="text" [(ngModel)]="user.phone" id="option" placeholder="Телефон" class="form-control">
+          </div>
+        </div>		
+            <br>
+        <div class="form-group" style="text-align: center;">
+            <button type="submit" name="CallbackForm" [disabled]="CallbackForm.invalid">Жду звонка!</button>
+        </div>
+  </form>
+</ng-template>
+<!--=========/ModalWindow=========-->
+<!--=========Menu=========-->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+  <div class="container">  
+    <button aria-controls="navbarSupportedContent" aria-label=
+    "Toggle navigation" class="navbar-toggler" data-target=
+    "#navbarSupportedContent" data-toggle="collapse" type="button"><span class=
+    "navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" id='main'> <!-- active -->
+          <a class="nav-link" href="#" routerLink="" [class.active]="currentPage === 'main'">Главная</a>
+        </li>
+        <li class="nav-item dropdown" id='stroller'> <!-- active -->
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href="#" id=
+          "navbarDropdown" role="button" [class.active]="currentPage === 'stroller'">Коляски 2в1</a>
+          <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+            <ul style="padding-left: 0;">
+              <li *ngFor= 'let stroller of strollerSection' style="margin-right: 0;">
+                  <a class="dropdown-item" routerLink="/section/{{stroller.id}}">{{stroller.titleMenu}}</a>
+                  <hr>
+              </li>
+              <li style="margin-right: 0;"><a class="dropdown-item text-center" routerLink="/choose">Показать все</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item dropdown" id="buggy"> <!-- active -->
+          <a aria-expanded="false" aria-haspopup="true" class=
+          "nav-link dropdown-toggle" data-toggle="dropdown" href="#" id=
+          "navbarDropdown" role="button" [class.active]="currentPage === 'buggy'">Прогулочные коляски</a>
+          <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+            <ul style="padding-left: 0;">
+              <li *ngFor= 'let buggy of buggySection' style="list-style-type: none; margin-right: 0;">
+                  <a class="dropdown-item" routerLink="/section/{{buggy.id}}">{{buggy.titleMenu}}</a>
+                  <hr>
+              </li>
+              <li style="margin-right: 0;"><a class="dropdown-item text-center" routerLink="/choose">Показать все</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item"><!-- active -->
+          <a class="nav-link" href="#" routerLink='/accessorise' [class.active]="currentPage === 'accessorise'">Аксессуары</a>
+        </li>
+        <li class="nav-item"><!-- active -->
+          <a class="nav-link d-flex" routerLink="/cart" [class.active]="currentPage === 'cart'"><i class="material-icons" style="margin-right: 5px;">shopping_cart</i>( {{viewCount}} )</a>
+        </li>
+      </ul>
+      <!-- <form class="form-inline my-2 my-lg-0">
+        <input aria-label="Поиск" 
+        class="form-control mr-sm-2" 
+        placeholder="Поиск..." 
+        type="text"
+        [(ngModel)]="selected"
+        [typeahead]="states"> 
+        <button class='button_find'><i class="material-icons">arrow_right_alt</i></button>
+      </form> -->
+
+      <!--========Pipe=========-->
+<div class="form-group m-0 p-0">
+    <input class="form-control"
+          placeholder="Поиск..." 
+          id="searchByCompany" 
+          [(ngModel)]="searchValue" 
+          type="text" 
+          (click)="isDropDownCompanyOpen = true;" 
+          (keyup)="isDropDownCompanyOpen = true;" >
+   <div class="ng2-dropdown w-100 p-0" *ngIf="isDropDownCompanyOpen" #dropdown>
+     <ul>
+       <li *ngFor="let company of companies | pipe : searchValue" 
+      class="dropdown-el" 
+      (click)='searchValue=company;isDropDownCompanyOpen=false;'>
+                 {{company.h1}}
+       </li>
+    </ul>
+  </div>
+</div>
+<!--========/Pipe=========-->
+
+    </div>
+  </div>
+</nav>
+<!--========/Menu=========-->
+
+<router-outlet></router-outlet>
+
+<footer class="footer">
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-sm-4 col-lg-4">
+          <p>Адрес</p>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-lg-4">
+          <p>Телефон</p>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-lg-4">
+          <p>Соцсети</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- https://angular.io/guide/pipes
+https://www.primefaces.org/primeng/#/autocomplete -->

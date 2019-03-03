@@ -1,0 +1,96 @@
+<div class="container-fluid section_main_screen" 
+[ngStyle]="{'background-image': 'url(' + section.backgroundImageMainScreen + ')'}"> 
+</div>
+<div class="container">
+  <h1 class="text-center">{{section.h1}}</h1>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <iframe width="560" height="315" [src]="getUrl()" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen></iframe>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <ul>
+        <li>{{section.ulLi1}}</li>
+        <li>{{section.ulLi2}}</li>
+        <li>{{section.ulLi3}}</li>
+        <li>{{section.ulLi4}}</li>
+        <li>{{section.ulLi5}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--=========Advantages=========-->
+<!-- <div class="container-fluid">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 d-flex">
+      <img src="../../assets/img/img_section/1DisneyAdvantages.jpg" alt="">
+      <div>
+        <h5>САМЫЙ СЛАДКИЙ СОН</h5>
+        <p>Единственная коляска- "книжка" на рынке, которая раскладывается на 1800! (раскладывается на 1750, а под весом ребенка полностью на 1800)</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <img src="../../assets/img/img_section/2DisneyAdvantages.png" alt="">
+      <div>
+        <h5>ПОМЕСТИТСЯ ВЕЗДЕ</h5>
+        <p>Компактная “книжка” в сложенном виде соответствует параметрам ручной клади. (размеры в сложенном виде Д52*Ш44*В23 см)</p>
+      </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <img src="../../assets/img/img_section/3DisneyAdvantages.png" alt="">
+      <div>
+      <h5>ПРИЯТНАЯ ПРОГУЛКА   В ЛЮБУЮ ПОГОДУ</h5>
+      <p>Дополнительное отделение капюшона со смотровым окном и москитной вставкой (на замочке).</p>
+    </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <img src="../../assets/img/img_section/4DisneyAdvantages.jpg" alt="">
+    <div>
+        <h5>КАЧЕСТВЕННЫЙ ТЕКСТИЛЬ</h5>
+        <p>В колясках премиум-сегмента Easywalker использован качественный, приятный на ощупь текстиль, который не парит.</p>
+      </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <img src="../../assets/img/img_section/5DisneyAdvantages.jpg" alt="">
+    <div>
+        <h5>ПРИЯТНАЯ ПРОГУЛКА В ЛЮБУЮ ПОГОДУ</h5>
+        <p>Дополнительное отделение капюшона со смотровым окном и москитной вставкой (на замочке).</p>
+      </div>
+      </div>
+    <div class="col-xs-12 col-sm-6">
+      <img src="../../assets/img/img_section/6DisneyAdvantages.jpg" alt="">
+    <div>
+        <h5>КАЧЕСТВЕННЫЙ ТЕКСТИЛЬ</h5>
+        <p>В колясках премиум-сегмента Easywalker использован качественный, приятный на ощупь текстиль, который не парит.</p>
+      </div>
+      </div>
+  </div>
+</div>
+</div> -->
+<!--=========/Advantages=========-->
+<!--=========Products=========-->
+<div class="container-fluid text-center">
+  <div class="container container_padding">
+    <h2>{{section.h2}}</h2>
+    <div class="row text-center justify-content-center">
+        <div *ngFor='let buggy of buggys' class="col-xs-12 col-sm-4">
+          <div class="card">
+            <img src="{{buggy.img1}}" class="card-img-top" alt="">
+            <div class="card-body">
+              <h4 class="card-title">{{buggy.h1}}</h4>
+              <p>{{buggy.price}} грн.</p>
+              <button routerLink="/product/{{buggy.id}}">Посмотреть</button>
+            </div>
+          </div>
+        </div>
+    </div>   
+  </div>
+</div>
+<!--=========Products=========-->
+  
+  

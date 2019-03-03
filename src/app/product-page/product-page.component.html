@@ -1,0 +1,135 @@
+<div class="container-fluid">
+	<div class="container">
+		<h1>{{currentBuggy.h1}}</h1>
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 text-center">
+				<img src="{{currentBuggy.img1}}" alt="" height="300">
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<div class="d-flex price text-center">		
+					<div><span>{{currentBuggy.price}} </span> грн.</div>
+					<div style="width: 120px; margin-right: 0; margin-left: auto;">
+						<button class="btn_buy" (click)='addToCart()'>
+							<img src="../../assets/img/img-product/cart.png" style="margin-right: 10px;">
+							Купить
+						</button>
+					</div>
+				</div>
+				<ul class="list">
+					<li>Бесплатная доставка</li>
+					<li>Оплата при получении</li>
+					<li>Гарантия 12 месяцев</li>
+				</ul>
+				<div class="text-center" style="width: 237px; margin: auto;">
+					<button class="add_to_compare" (click)='addToCompare()'>
+						<img src="../../assets/img/img-product/shape.png" style="margin-right: 10px;">Добавить в сравнение
+					</button>
+					<button routerLink='/compare' class="go_to_compare" style='padding-left: 30px' [class.button_go_to_compare_visible]="this.isItInCompare !== false">Перейти к сравнению</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid container_padding">
+	<div class="container mock_product">
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+			<li class="nav-item">
+				<a aria-controls="home" aria-selected="true" class="nav-link active"
+				data-toggle="tab" href="#home" id="home-tab" role="tab">Описание</a>
+			</li>
+			<li class="nav-item">
+				<a aria-controls="profile" aria-selected="false" class="nav-link"
+				data-toggle="tab" href="#profile" id="profile-tab" role="tab">Особенности</a>
+			</li>
+			<li class="nav-item" style="width: 34%">
+				<a aria-controls="contact" aria-selected="false" class="nav-link"
+				data-toggle="tab" href="#contact" id="contact-tab" role="tab">Технические характеристики</a>
+			</li>
+		</ul>
+		<div class="tab-content" id="myTabContent">
+			<div aria-labelledby="home-tab" class="tab-pane fade show active" id="home"
+			role="tabpanel">
+			SEO-text
+			<br>
+			{{currentBuggy.seoText}}	
+			</div>
+
+			<div aria-labelledby="profile-tab" class="tab-pane fade" id="profile" role=
+			"tabpanel">
+				<ul>
+					<li>{{currentBuggy.feature1}}</li>
+					<li>{{currentBuggy.feature2}}</li>
+					<li>{{currentBuggy.feature3}}</li>
+					<li>{{currentBuggy.feature4}}</li>
+					<li>{{currentBuggy.feature5}}</li>
+					<li>{{currentBuggy.feature6}}</li>
+					<li>{{currentBuggy.feature7}}</li>
+				</ul>
+			</div>
+		<div aria-labelledby="contact-tab" class="tab-pane fade" id="contact" role=
+		"tabpanel">
+			<table class="table">
+				<tbody>
+					<tr *ngIf="currentBuggy.babyAge" class="tr tr_border">
+						<td><p>Возраст ребёнка</p></td>
+						<td><p>{{currentBuggy.babyAge}}</p></td>
+					</tr>
+					<tr *ngIf="currentBuggy.babyWeight" class="tr tr_border">
+						<td><p>Вес ребёнка</p></td>
+						<td><p>{{currentBuggy.babyWeight}}</p></td>
+					</tr>
+					<tr *ngIf="currentBuggy.foldingType" class="tr tr_border">
+						<td><p>Тип складывания</p></td>
+						<td><p>{{currentBuggy.foldingType}}</p></td>
+					</tr>
+					<tr *ngIf="currentBuggy.backrestAdjustment" class="tr tr_border">
+						<td><p>Регулировка спинки</p></td>
+						<td><p>{{currentBuggy.backrestAdjustment}}</p></td>
+					</tr>
+					<tr *ngIf="currentBuggy.seatBelts" class="tr tr_border">
+						<td><p>Внутренние ремни</p></td>
+						<td><p>{{currentBuggy.seatBelts}}</p></td>
+					</tr>
+					<tr *ngIf="currentBuggy.removableSoftParts" class="tr tr_border">
+						<td><p>Съёмные мягкие части</p></td>
+						<td><p>{{currentBuggy.removableSoftParts}}</p></td>
+					</tr>
+					<tr *ngIf="currentBuggy.basketForThings" class="tr">
+						<td><p>Корзина для вещей</p></td>
+						<td><p>{{currentBuggy.basketForThings}}</p></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</div>
+</div>
+	
+<div class="container container_padding text-center">
+	<h2>С этим товаром обычно покупают</h2>
+	<div class='text-center container_padding'>
+	  <carousel>	
+			<slide *ngFor='let accesorise of accessorises'>
+				<div><img src="{{accesorise.img1}}" alt="accessorise" style="max-width: 200px;"></div>
+				<br>
+				<div>{{accesorise.h1}}</div>
+				<br>
+				<div><b>{{accesorise.price}} грн.</b></div>
+				<br>
+				<div style="margin-bottom: 40px;">
+					<button class="btn_buy" (click)='addToCartAccessorises(accesorise.id)'>
+						<img src="../../assets/img/img-product/cart.png" style="margin-right: 10px;">Купить
+					</button>
+				</div>
+			</slide>
+	  </carousel>
+	</div>
+</div>
+	
+
+

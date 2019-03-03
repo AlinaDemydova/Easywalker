@@ -1,0 +1,32 @@
+$mainColorRed: #f85969;
+$white: #ffffff;
+$fontSize: 16px;
+
+button {
+    padding: 0;
+    border: none;
+    color: $white;
+    background-color: $mainColorRed;
+    cursor: pointer;
+    width: 163px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 5px;
+  }
+
+h1, h2 {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.card {
+    border: none;
+    margin-bottom: 30px;
+    
+    img {
+        border: 2px solid $mainColorRed;
+        border-radius: 5px;
+        padding: 1px;
+    }
+} 

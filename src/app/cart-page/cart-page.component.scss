@@ -1,0 +1,136 @@
+$mainColorRed: #f85969;
+$white: #ffffff;
+$fontSize: 16px;
+
+@mixin button-reset {
+	padding: 0;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+button {
+	@include button-reset;
+	text-transform: uppercase;
+	color: $white;
+}
+
+.btn_make-order, button[type='submit'] {
+	background-color: $mainColorRed;
+	width: 163px;
+	height: 40px;
+	font-size: 14px;
+	font-weight: 700;
+	border-radius: 5px;
+}
+
+button[type='submit'] {
+	margin-right: 30px;
+}
+
+button[name="OrderForm"] {
+	margin: auto;
+}
+
+.container_padding {
+	padding: 30px;
+}
+
+input[type="number"] {
+	margin: 0;
+	width: 64px;
+	height: 41px;
+	border: 2px solid black;
+	border-radius: 5px;
+}
+
+h1 {
+	display: inline;
+	color: $mainColorRed;
+	text-transform: uppercase;
+	font-size: 18px;
+	width: 30%;
+	padding-left: 20px;
+	font-weight: 700;
+}
+
+h2 {
+	display: inline;
+	float: right;
+	padding-right: 40px;
+	font-size: 18px;
+	width: 70%;
+	text-align: right;
+	font-weight: 700;
+}
+
+h3 {
+	width: 70%;
+}
+
+h3, h4 {
+	font-size: 18px;
+}
+
+p {
+	font-size: 14px;
+}
+
+.price {
+	font-size: 24px;
+	font-weight: 700;
+	span {
+		color: $mainColorRed;
+	}
+}
+
+hr {
+	background-color: $mainColorRed;
+	height: 2px;
+}
+
+.itemInCart {
+	img {
+		border: 2px solid $mainColorRed;
+		border-radius: 5px;
+		padding: 1px;
+		width: 100%;
+	}
+	.close_btn, .minus_btn, .plus_btn {
+		padding: 0;
+		border: none;
+		width: 41px;
+		height: 41px;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	.close_btn {
+		background-image: url(../../assets/img/img_cart/close_btn.png);
+		float: right;
+	}
+	.minus_btn {
+		background-image: url(../../assets/img/img_cart/minus_icon.png);
+	}
+	.plus_btn {
+		background-image: url(../../assets/img/img_cart/plus_icon.png);
+	}
+}
+
+.form-horizontal {
+	padding: 15px;
+}
+
+input[type="text"], textarea {
+	width: 300px;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin: auto;
+}
+
+label {
+	font-weight: 900;
+}
+
+.modal-title {
+	margin: auto;
+}

@@ -1,0 +1,42 @@
+$mainColorRed: #f85969;
+$white: #ffffff;
+$fontSize: 16px;
+
+.text-center {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    padding: 0;
+    border: none;
+    color: $white;
+    background-color: $mainColorRed;
+    cursor: pointer;
+    width: 163px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 5px;
+  }
+
+.table {
+    border: 3px solid $mainColorRed;
+    margin: 10px;
+    
+    img {
+        border-color: $mainColorRed;
+        height: 150px;
+    }
+
+    td {
+        width: 200px;
+        border-right: 3px solid $mainColorRed;
+    }
+    
+}
+
+.toCurrentPage {
+    width: 230px;
+}
+

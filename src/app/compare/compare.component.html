@@ -1,0 +1,48 @@
+<div class='text-center'>
+  <table class="table">
+    <tr>
+      <td class="td"></td>
+      <td *ngFor='let inCompare of productsInCompare'><img src="{{inCompare.img1}}" alt="buggy"></td>
+    </tr>
+    <tr>
+      <td class="td">Название</td>
+      <td *ngFor='let inCompare of productsInCompare'>{{inCompare.h1}}</td>
+    </tr>
+    <tr>
+      <td class="td">Тип</td>
+      <td *ngFor='let inCompare of productsInCompare'>{{inCompare.type}}</td>
+    </tr>
+    <tr>
+      <td class="td">Возраст ребенка</td>
+      <td *ngFor='let inCompare of productsInCompare'>{{inCompare.babyAge}}</td>
+    </tr>
+    <tr>
+      <td class="td">Вес ребенка</td>
+      <td *ngFor='let inCompare of productsInCompare'>{{inCompare.babyWeight}}</td>
+    </tr>
+    <tr>
+      <td class="td">Ремни безопасности</td>
+      <td *ngFor='let inCompare of productsInCompare'>{{inCompare.seatBelts}}</td>
+    </tr>
+    <tr>
+      <td class="td">Съемные мягкие части</td>
+      <td *ngFor='let inCompare of productsInCompare'>{{inCompare.removableSoftParts}}</td>
+    </tr>
+    <tr>
+      <td class="td">Корзина для вещей</td>
+      <td *ngFor='let inCompare of productsInCompare'>{{inCompare.basketForThings}}</td>
+    </tr>
+    <tr>
+      <td class="td"></td>
+      <td *ngFor='let inCompare of productsInCompare'>
+        <button class="toCurrentPage" routerLink='/product/{{inCompare.id}}'>Перейти на страницу товара</button>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td *ngFor='let inCompare of productsInCompare'>
+        <button (click)='deleteProduct(inCompare.id)'>Убрать из сравнения</button>
+      </td>
+      </tr>
+  </table>
+ </div>

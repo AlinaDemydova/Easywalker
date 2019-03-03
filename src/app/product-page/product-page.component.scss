@@ -1,0 +1,171 @@
+$mainColorRed: #f85969;
+$white: #ffffff;
+$fontSize: 16px;
+
+@mixin button-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+button {
+    @include button-reset;
+    text-transform: uppercase;
+    color: $white;
+    background-color: $mainColorRed;
+    width: 163px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.go_to_compare {
+    display: none;
+    padding-left: 10px;
+}
+
+.button_go_to_compare_visible {
+    margin-top: 5px;
+    background-color: #81a881;
+    display: flex;
+}
+
+.container_padding {
+    padding: 30px;
+  }
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 40px 0 30px 0;
+    padding: 0 50px 0 50px;
+}
+
+.list {
+        padding: 20px;
+        list-style: none;
+        list-style-image: url('../../assets/img/img-product/check.png');
+
+   li {
+    padding:4px 0 4px 15px;
+   }
+}
+
+.btn_buy {
+    width: 120px;
+}
+
+.add_to_compare, .go_to_compare {
+    width: 237px;   
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 700;
+    width: 70%;
+
+    div span {
+        color: $mainColorRed;
+    }    
+}
+
+.mock_product {
+    padding: 0;
+    border-bottom: 2px solid $mainColorRed;
+    border-left: 2px solid $mainColorRed;
+    border-right: 2px solid $mainColorRed;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.nav-tabs .nav-link {
+    border: 2px solid $mainColorRed;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+}
+
+.nav-item {
+    width: 33%;
+
+    a {
+        color: black;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+}
+
+.nav-link.active {
+    color: $white;
+    background-color: $mainColorRed;
+    text-transform: uppercase;
+    font-weight: 700; 
+}
+
+#home, #profile {
+    padding: 20px 20px 20px 30px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 0;
+
+    td {
+        border-bottom: 2px solid $mainColorRed;
+    }
+
+    .tr {
+        height: 50px;
+
+        td:first-child {
+            border-right: 2px solid $mainColorRed;
+        }
+
+        td p {
+            margin-left: 20px;
+            margin-bottom: 0;
+        } 
+    }
+}
+
+.jcarousel img {
+    display: block;
+    max-width: 100%;
+    height: auto !important;
+}
+
+/*
+This is the visible area of you carousel.
+Set a width here to define how much items are visible.
+The width can be either fixed in px or flexible in %.
+Position must be relative!
+*/
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+}
+
+/*
+This is the container of the carousel items.
+You must ensure that the position is relative or absolute and
+that the width is big enough to contain all items.
+*/
+.jcarousel ul {
+    position: relative;
+
+    /* Optional, required in this case since it's a <ul> element */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+These are the item elements. jCarousel works best, if the items
+have a fixed width and height (but it's not required).
+*/

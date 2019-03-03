@@ -1,0 +1,129 @@
+/* You can add global styles to this file, and also import other style files */
+$mainColorRed: #f85969;
+$white: #ffffff;
+$fontSize: 16px;
+
+body {
+  font-family: OpenSans, sans-serif;
+}
+
+button, input[type='submit'] {
+  padding: 0;
+  border: none;
+  color: $white;
+  background-color: $mainColorRed;
+  cursor: pointer;
+  width: 163px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+#option {
+  width: 300px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: auto;
+}
+
+label {
+  font-weight: 900;
+}
+
+.modal-title {
+  margin-left: 80px;
+}
+
+.container_padding {
+  padding: 30px;
+}
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+.head {
+
+  button {
+    margin-top: 6px;
+  }
+
+  .description {
+    font-size: $fontSize;
+    font-weight: 700;
+    line-height: 52px;
+  }
+
+  .quickOrder {
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 6px;
+
+      span {
+        font-size: $fontSize;
+        font-weight: 700;
+      }
+  }
+}
+
+.navbar {
+  background-color: $mainColorRed;
+
+  li {
+    margin-right: 20px;
+    hr {
+      margin: 3px;
+      padding: 0;
+    }
+  }
+
+  .dropdown-menu {
+    padding: 3px;
+  }
+
+  .navbarDropdown {
+    padding: 0;
+    padding: 3px;
+  }
+
+  .active {
+    color: $white;
+  }
+
+  .button_find {
+    width: 40px;
+  }
+
+  .nav-item {
+    line-height: 27px;
+  }
+
+  .navbar-light .navbar-nav .nav-link {
+    color: $white;
+    font-size: $fontSize;
+    font-weight: 400;
+  }
+
+  .dropdown-item:hover {
+    background-color: $mainColorRed;
+  }
+
+  .navbar-toggler {
+    border: none;
+    width: 60px;
+  }
+}
+
+.footer {
+  height: 60px;
+  
+  hr {
+    height: 2px;
+    background-color: $mainColorRed;
+  }
+}

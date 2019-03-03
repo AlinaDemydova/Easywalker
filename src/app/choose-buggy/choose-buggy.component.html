@@ -1,0 +1,29 @@
+<div class="container-fluid d-flex">
+  <div class="checkBox">
+    <input type='checkbox' [(ngModel)]="sortByStroller" (ngModelChange)="sortedProducts()">Коляски 2в1
+    <br>
+    <input type='checkbox' [(ngModel)]="sortByBuggy" (ngModelChange)="sortedProducts()">Прогулочные коляски
+    <hr>
+    <input type='checkbox' [(ngModel)]="sortByGirl" (ngModelChange)="sortedProducts()">Для девочек
+    <br>
+    <input type='checkbox' [(ngModel)]="sortByBoy" (ngModelChange)="sortedProducts()">Для мальчиков
+    <br>
+    <input type='checkbox' [(ngModel)]="sortByUnisex" (ngModelChange)="sortedProducts()">Унисекс
+  </div>
+  <div class="container">
+      <div class="row text-center justify-content-center">
+          
+          <div *ngFor='let choose of choosedBuggy' class="col-xs-12 col-sm-4">
+              <div class="card">
+                <img src="{{choose.img1}}" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h4 class="card-title">{{choose.h1}}</h4>
+                  <p>{{choose.price}} грн.</p>
+                  <button routerLink="/product/{{choose.id}}">Посмотреть</button>
+                </div>
+              </div>
+          </div>
+        
+      </div>
+  </div>
+</div>
