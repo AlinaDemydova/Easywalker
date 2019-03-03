@@ -103,13 +103,15 @@
       <!--========Pipe=========-->
 <div class="form-group m-0 p-0">
     <input class="form-control"
-          placeholder="Поиск..." 
-          id="searchByCompany" 
-          [(ngModel)]="searchValue" 
           type="text" 
+          placeholder="Поиск..." >
+
+        <!--   id="searchByCompany" 
+          [(ngModel)]="searchValue" 
           (click)="isDropDownCompanyOpen = true;" 
-          (keyup)="isDropDownCompanyOpen = true;" >
-   <!-- <div class="ng2-dropdown w-100 p-0" *ngIf="isDropDownCompanyOpen" #dropdown>
+          (keyup)="isDropDownCompanyOpen = true;" 
+          >
+   <div class="ng2-dropdown w-100 p-0" *ngIf="isDropDownCompanyOpen" #dropdown>
      <ul>
        <li *ngFor="let company of companies | pipe : searchValue" 
       class="dropdown-el" 
