@@ -43,6 +43,8 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+              "baseHref": "/",
+              "deployUrl": "https://alinademydova.github.io/easywalker",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
