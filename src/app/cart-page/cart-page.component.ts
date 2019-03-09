@@ -99,12 +99,8 @@ export class CartPageComponent implements OnInit {
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
-  // addOrder() {
-  //  // alert(this.USER);
-  // }
-  // makeOrder(){
-  //   //this.router.navigateByUrl('/order');
-  // }
+
+
   // clearCart() {
   //   this.productsInCart = localStorage.clear();
   // }

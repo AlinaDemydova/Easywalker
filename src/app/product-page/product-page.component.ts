@@ -8,6 +8,7 @@ import { Location } from '@angular/common';
 import { AccessoriseTemplate } from '../accessorise-page/accessorise-template';
 import { CartPageComponent } from '../cart-page/cart-page.component';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { ArrayType } from '@angular/compiler';
 
 @Component({
   selector: 'app-product-page',
@@ -20,6 +21,7 @@ accessorises = ACCESSORISE;
 currentBuggy: ProductTemplate;
 isItInCompare: boolean = false;
 accesorise: AccessoriseTemplate;
+isCurrentBuggyInCart: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -39,17 +41,44 @@ accesorise: AccessoriseTemplate;
     this.productService.getProduct(id).subscribe(product => this.currentBuggy = product);
   }
 
-  addToCart() {
-    const arr = JSON.parse(localStorage.getItem('obj'));
-    if(arr) {
-      arr.push(this.currentBuggy);
-      localStorage.setItem('obj', JSON.stringify(arr));
-    } else {
-      localStorage.setItem('obj', JSON.stringify([this.currentBuggy]));
-    }
-    this.productService.cartSubject.next();
-    this.router.navigateByUrl('/cart');
-  }
+  //if(arr.find( x => x.id === this.currentBuggy.id)) {
+        //arr = arr.map(x.id === this.currentBuggy.id => this.currentBuggy.quantity += 1 );
+        //this.currentBuggy = arr.find( x => x.id === this.currentBuggy.id);
+        //localStorage.setItem('obj', JSON.stringify(arr));
+        //this.currentBuggy.quantity += 1;
+        //this.router.navigateByUrl('/cart');
+        //return;
+      //}
+      addToCart() {
+        let arr = JSON.parse(localStorage.getItem('obj'));
+        if(arr) {
+          this.isCurrentBuggyInCart = arr.find(x => x.id === this.currentBuggy.id);
+        }
+
+        if (!this.isCurrentBuggyInCart) {
+          if(arr) {
+            arr.push(this.currentBuggy);
+            localStorage.setItem('obj', JSON.stringify(arr));
+          } else {
+            localStorage.setItem('obj', JSON.stringify([this.currentBuggy]));
+          }
+        } else {
+          arr = arr.map(x => {
+            if(arr.find(x => x.id === this.currentBuggy.id)) {
+              return this.currentBuggy.quantity += 1;
+            } else {
+              return x;
+            }
+            ///????????????????????????????????????????
+            
+          })
+          //arr[this.currentBuggy.quantity] += 1;
+          //localStorage.setItem('obj', JSON.stringify(arr));
+          this.router.navigateByUrl('/cart');
+        }      
+        this.productService.cartSubject.next();
+        this.router.navigateByUrl('/cart');
+      }
 
   addToCartAccessorises(id: number) {
     const arr = JSON.parse(localStorage.getItem('obj'));

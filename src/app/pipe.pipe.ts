@@ -1,22 +1,18 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ALLBUGGYS } from './product-page/mock-product';
+import { ProductTemplate } from './product-page/product-template';
 
 @Pipe({
   name: 'pipe'
 })
 export class FiltrPipe implements PipeTransform {
-  companies = ALLBUGGYS;
-  // transform(value: any, args?: any): any {
-  //   return null;
-  // }
-
-  transform(items: any[], searchText: string): any[] {
-    if (!items) { return []; }
-    if (!searchText) { return items; }
+  
+  transform(allbuggy: ProductTemplate[], searchText: string): any[] {
+    if (!allbuggy) { return []; }
+    if (!searchText) { return allbuggy; }
     searchText = searchText.toLowerCase();
-    return items.filter( it => {
-      return it.toLowerCase().includes(searchText);
+    allbuggy = allbuggy.filter( it => {
+     return it.h1.toLowerCase().includes(searchText);// h1 ????????????????????
     });
+    return allbuggy;
    }
-
 }

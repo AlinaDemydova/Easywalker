@@ -49,6 +49,7 @@ export class AppComponent {
     private appService: AppService,) { }
 
     ngOnInit(): void {
+      //localStorage.clear();
       this.getSectionBuggy();
       this.getSectionStroller();
       this.activeMenu();

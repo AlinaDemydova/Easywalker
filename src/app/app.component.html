@@ -44,7 +44,7 @@
 </ng-template>
 <!--=========/ModalWindow=========-->
 <!--=========Menu=========-->
-<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+<nav style="position: relative; height: 58px;" class="navbar navbar-expand-lg navbar-light sticky-top">
   <div class="container">  
     <button aria-controls="navbarSupportedContent" aria-label=
     "Toggle navigation" class="navbar-toggler" data-target=
@@ -55,6 +55,7 @@
         <li class="nav-item" id='main'> <!-- active -->
           <a class="nav-link" href="#" routerLink="" [class.active]="currentPage === 'main'">Главная</a>
         </li>
+
         <li class="nav-item dropdown" id='stroller'> <!-- active -->
           <a aria-expanded="false" aria-haspopup="true" class=
           "nav-link dropdown-toggle" data-toggle="dropdown" href="#" id=
@@ -69,6 +70,7 @@
             </ul>
           </div>
         </li>
+
         <li class="nav-item dropdown" id="buggy"> <!-- active -->
           <a aria-expanded="false" aria-haspopup="true" class=
           "nav-link dropdown-toggle" data-toggle="dropdown" href="#" id=
@@ -83,43 +85,33 @@
             </ul>
           </div>
         </li>
+
         <li class="nav-item"><!-- active -->
           <a class="nav-link" href="#" routerLink='/accessorise' [class.active]="currentPage === 'accessorise'">Аксессуары</a>
         </li>
         <li class="nav-item"><!-- active -->
-          <a class="nav-link d-flex" routerLink="/cart" [class.active]="currentPage === 'cart'"><i class="material-icons" style="margin-right: 5px;">shopping_cart</i>( {{viewCount}} )</a>
+          <a class="nav-link d-flex" routerLink="/cart" [class.active]="currentPage === 'cart'"><i class="material-icons" style="margin-right: 5px;">shopping_cart</i><span *ngIf='viewCount'>( {{viewCount}} )</span></a>
         </li>
       </ul>
-      <!-- <form class="form-inline my-2 my-lg-0">
-        <input aria-label="Поиск" 
-        class="form-control mr-sm-2" 
-        placeholder="Поиск..." 
-        type="text"
-        [(ngModel)]="selected"
-        [typeahead]="states"> 
-        <button class='button_find'><i class="material-icons">arrow_right_alt</i></button>
-      </form> -->
 
       <!--========Pipe=========-->
-<div class="form-group m-0 p-0">
-    <input class="form-control"
-          type="text" 
-          placeholder="Поиск..." >
-
-        <!--   id="searchByCompany" 
+<div class="form-group m-0 p-0 dropdown">
+    <input aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown"
+     class="form-control"
+          placeholder="Поиск..." 
+          id="navbarDropdown" 
           [(ngModel)]="searchValue" 
-          (click)="isDropDownCompanyOpen = true;" 
-          (keyup)="isDropDownCompanyOpen = true;" 
-          >
-   <div class="ng2-dropdown w-100 p-0" *ngIf="isDropDownCompanyOpen" #dropdown>
-     <ul>
-       <li *ngFor="let company of companies | pipe : searchValue" 
-      class="dropdown-el" 
-      (click)='searchValue=company;isDropDownCompanyOpen=false;'>
-                 {{company.h1}}
+          type="text" 
+          (click)="isDropDownBuggyOpen = true;" 
+          (keyup)="isDropDownBuggyOpen = true;" >
+   <div style="width: 350px;" class="dropdown-menu p-0" *ngIf="isDropDownBuggyOpen"  aria-labelledby="navbarDropdown">
+     <ul class='p-0'>
+       <li style="margin: 3px;" class="dropdown-el p-0" *ngFor="let allbuggy of allbuggys | pipe : searchValue" 
+          (click)='searchValue=allbuggy.h1; isDropDownBuggyOpen=false;'>
+          <a class="dropdown-item" style="white-space: normal;" routerLink="/product/{{allbuggy.id}}">{{allbuggy.h1}}</a>
        </li>
     </ul>
-  </div> -->
+  </div>
 </div>
 <!--========/Pipe=========-->
 
