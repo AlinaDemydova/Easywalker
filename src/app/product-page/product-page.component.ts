@@ -22,6 +22,7 @@ currentBuggy: ProductTemplate;
 isItInCompare: boolean = false;
 accesorise: AccessoriseTemplate;
 isCurrentBuggyInCart: boolean = false;
+isCurrentAccessoriseInCart: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -41,20 +42,11 @@ isCurrentBuggyInCart: boolean = false;
     this.productService.getProduct(id).subscribe(product => this.currentBuggy = product);
   }
 
-  //if(arr.find( x => x.id === this.currentBuggy.id)) {
-        //arr = arr.map(x.id === this.currentBuggy.id => this.currentBuggy.quantity += 1 );
-        //this.currentBuggy = arr.find( x => x.id === this.currentBuggy.id);
-        //localStorage.setItem('obj', JSON.stringify(arr));
-        //this.currentBuggy.quantity += 1;
-        //this.router.navigateByUrl('/cart');
-        //return;
-      //}
       addToCart() {
         let arr = JSON.parse(localStorage.getItem('obj'));
         if(arr) {
           this.isCurrentBuggyInCart = arr.find(x => x.id === this.currentBuggy.id);
         }
-
         if (!this.isCurrentBuggyInCart) {
           if(arr) {
             arr.push(this.currentBuggy);
@@ -63,32 +55,40 @@ isCurrentBuggyInCart: boolean = false;
             localStorage.setItem('obj', JSON.stringify([this.currentBuggy]));
           }
         } else {
+          console.log(arr);
+          debugger
           arr = arr.map(x => {
-            if(arr.find(x => x.id === this.currentBuggy.id)) {
-              return this.currentBuggy.quantity += 1;
-            } else {
-              return x;
-            }
-            ///????????????????????????????????????????
-            
-          })
-          //arr[this.currentBuggy.quantity] += 1;
-          //localStorage.setItem('obj', JSON.stringify(arr));
+          let isInCart = arr.find(x => x.id === this.currentBuggy.id);
+          isInCart ? isInCart.quantity += 1 : x;
+          localStorage.setItem('obj', JSON.stringify(arr));
+          });
           this.router.navigateByUrl('/cart');
         }      
         this.productService.cartSubject.next();
         this.router.navigateByUrl('/cart');
       }
-
   addToCartAccessorises(id: number) {
-    const arr = JSON.parse(localStorage.getItem('obj'));
+    let arr = JSON.parse(localStorage.getItem('obj'));
     this.accesorise = this.accessorises.find(x=> x.id === id);
     if(arr) {
-      arr.push(this.accesorise);
-      localStorage.setItem('obj', JSON.stringify(arr));
-    } else {
-      localStorage.setItem('obj', JSON.stringify([this.accesorise]));
+      this.isCurrentAccessoriseInCart = arr.find(x => x.id === this.accesorise.id);
     }
+    if(!this.isCurrentAccessoriseInCart) {
+      if(arr) {
+        arr.push(this.accesorise);
+        localStorage.setItem('obj', JSON.stringify(arr));
+      } else {
+        localStorage.setItem('obj', JSON.stringify([this.accesorise]));
+      }
+    } else {
+      arr = arr.map(x => {
+      let isItInCart = arr.find(x => x.id === this.accesorise.id);
+      isItInCart ? isItInCart.quantity += 1 : x;
+      localStorage.setItem('obj', JSON.stringify(arr));
+      });
+      this.router.navigateByUrl('/cart');
+    }    
+   
     this.productService.cartSubject.next();
     this.router.navigateByUrl('/cart');
   }
