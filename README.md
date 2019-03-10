@@ -1,2 +1,2 @@
-# Project-Online-Store-Easywalker
-Online Store Easywalker
+Project Online Store Easywalker
+Angular 6 + Bootstrap 4
